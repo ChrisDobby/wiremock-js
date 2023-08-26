@@ -1,0 +1,24 @@
+{
+  "name": "@chrisdobby/wiremock-js",
+  "version": "0.0.1",
+  "description": "",
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "author": "chrisdobby",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/chrisdobby/wiremock-js/issues"
+  },
+  "homepage": "https://github.com/chrisdobby/wiremock-js#readme",
+  "scripts": {
+    "types": "tsc --noEmit --incremental",
+    "lint": "eslint src/ --max-warnings=0",
+    "test": "vitest run",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chrisdobby/wiremock-js.git"
+  }
+}

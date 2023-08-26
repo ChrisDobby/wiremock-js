@@ -1,0 +1,43 @@
+{
+  "name": "wiremock-js",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "types": "turbo run types",
+    "test": "turbo run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chrisdobby/wiremock-js.git"
+  },
+  "author": "chrisdobby",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/chrisdobby/wiremock-js/issues"
+  },
+  "homepage": "https://github.com/chrisdobby/wiremock-js#readme",
+  "private": true,
+  "devDependencies": {
+    "@types/node": "^20.5.6",
+    "@typescript-eslint/eslint-plugin": "^6.4.1",
+    "@typescript-eslint/parser": "^6.4.1",
+    "@vitest/coverage-istanbul": "^0.34.3",
+    "eslint": "^8.48.0",
+    "eslint-config-airbnb-base-typescript": "^1.1.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-import": "^2.28.1",
+    "eslint-plugin-jest": "^27.2.3",
+    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-promise": "^6.1.1",
+    "prettier": "^3.0.2",
+    "turbo": "^1.10.13",
+    "typescript": "^5.2.2",
+    "vitest": "^0.34.3"
+  },
+  "workspaces": [
+    "lib",
+    "demo"
+  ]
+}
