@@ -6,7 +6,8 @@
     "build": "turbo run build",
     "lint": "turbo run lint",
     "types": "turbo run types",
-    "test": "turbo run test"
+    "test": "turbo run test",
+    "demo": "turbo run test:integration"
   },
   "repository": {
     "type": "git",

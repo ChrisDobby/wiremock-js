@@ -26,6 +26,9 @@
     },
     "lint": {
       "outputs": []
+    },
+    "test:integration": {
+      "outputs": []
     }
   }
 }

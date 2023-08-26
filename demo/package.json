@@ -1,0 +1,16 @@
+{
+  "name": "@chrisdobby/wiremock-js-demo",
+  "version": "0.0.1",
+  "description": "",
+  "author": "chrisdobby",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "types": "tsc --noEmit --incremental",
+    "lint": "eslint src/ --max-warnings=0",
+    "test:integration": "vitest run"
+  },
+  "devDependencies": {
+    "@chrisdobby/wiremock-js": "*"
+  }
+}
