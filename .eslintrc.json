@@ -13,7 +13,8 @@
     "prettier/prettier": ["error"],
     "import/extensions": ["off"],
     "import/no-extraneous-dependencies": ["off"],
-    "import/prefer-default-export": ["off"]
+    "import/prefer-default-export": ["off"],
+    "jest/no-deprecated-functions": ["off"]
   },
   "extends": [
     "airbnb-base-typescript",
