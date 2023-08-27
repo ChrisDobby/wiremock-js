@@ -46,15 +46,28 @@ Starts a new Wiremock server if required, clears any existing mocks and adds a p
 
 #### options
 
-##### url?
+Type: `Object`
+
+startup options for the library
+
+##### url
+
+Type: `string`
+Default: `undefined`
 
 The url of an existing Wiremock server, if not supplied then a docker container running a server on port 8080 will be started.
 
-##### port?
+##### port
+
+Type: `number`
+Default: `undefined`
 
 Specifies a different port to run the docker container on.
 
 ##### proxy?
+
+Type: `string`
+Default: `undefined`
 
 Specifies the url of a proxy to be called for any paths that have no explicit mocks set.
 
