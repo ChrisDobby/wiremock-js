@@ -1,0 +1,47 @@
+name: Release
+run-name: Releasing 🌴${{ github.ref_name }}
+'on':
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout the repo
+        uses: actions/checkout@v3
+
+      - name: Setting up NodeJs
+        id: setup-node-js
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: .nvmrc
+
+      - name: Installing
+        id: installing
+        run: npm ci
+        shell: bash
+
+      - name: Linting
+        id: linting
+        run: npm run lint
+        shell: bash
+
+      - name: Test
+        id: test
+        run: npm run test
+        shell: bash
+
+      - name: Build
+        id: build
+        run: npm run build
+        shell: bash
+
+      - name: Release
+        id: build
+        run: npx semantic-release
+        shell: bash
+        working-directory: ./lib
