@@ -6,7 +6,10 @@ run-name: Releasing 🌴${{ github.ref_name }}
       - main
   workflow_dispatch:
 permissions:
-  contents: read
+  contents: write
+  issues: write
+  pull-requests: write
+  id-token: write
 jobs:
   release:
     runs-on: ubuntu-latest
