@@ -65,7 +65,7 @@ Default: `undefined`
 
 Specifies a different port to run the docker container on.
 
-##### proxy?
+##### proxy
 
 Type: `string`<br>
 Default: `undefined`
