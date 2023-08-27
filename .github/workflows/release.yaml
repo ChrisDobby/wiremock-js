@@ -30,18 +30,18 @@ jobs:
         run: npm run lint
         shell: bash
 
-      - name: Test
-        id: test
-        run: npm run test
-        shell: bash
-
       - name: Build
         id: build
         run: npm run build
         shell: bash
 
+      - name: Test
+        id: test
+        run: npm run test
+        shell: bash
+
       - name: Release
-        id: build
+        id: release
         run: npx semantic-release
         shell: bash
         working-directory: ./lib
