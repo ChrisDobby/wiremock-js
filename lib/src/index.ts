@@ -1,1 +1,3 @@
-export const wm = {}
+import wm from './wm'
+
+export { wm }
