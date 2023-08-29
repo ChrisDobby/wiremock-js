@@ -1,0 +1,24 @@
+name: build
+description: Build
+runs:
+  using: 'composite'
+  steps:
+    - name: Installing
+      id: installing
+      run: npm ci
+      shell: bash
+
+    - name: Linting
+      id: linting
+      run: npm run lint
+      shell: bash
+
+    - name: Build
+      id: build
+      run: npm run build
+      shell: bash
+
+    - name: Test
+      id: test
+      run: npm run test
+      shell: bash
