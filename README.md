@@ -40,7 +40,7 @@ When you have finished call `wm.stop()` to clear all mappings and, if a docker c
 
 ## API
 
-### wm.start([options]) => Promise<void>
+### wm.start([options]) => Promise&lt;void&gt;
 
 Starts a new Wiremock server if required, clears any existing mocks and adds a proxy if required.
 
@@ -72,11 +72,11 @@ Default: `undefined`
 
 Specifies the url of a proxy to be called for any paths that have no explicit mocks set.
 
-### wm.stop() => Promise<void>
+### wm.stop() => Promise&lt;void&gt;
 
 Clears any existing mocks and stops the docker container if one was started.
 
-### wm.clearAllMocks
+### wm.clearAllMocks() => Promise&lt;void&gt;
 
 Clears all existing mocks except the proxy if one was supplied.
 
