@@ -1,4 +1,6 @@
 import { spawn } from 'child_process'
+import { mock, clearAll } from './mock'
+import { waitForWiremock, clearAllMappings, addProxyMapping } from './api'
 
 type StartOptions =
   | {
@@ -11,22 +13,7 @@ type StartOptions =
     }
 
 const getContainerUrl = (port: number) => `http://0.0.0.0:${port}`
-
-const waitForWiremock = async (port: number) =>
-  new Promise<void>(resolve => {
-    const url = getContainerUrl(port)
-    const interval = setInterval(async () => {
-      try {
-        const response = await fetch(`${url}/__admin/mappings`)
-        if (response.status === 200) {
-          clearInterval(interval)
-          resolve()
-        }
-      } catch (e) {
-        // ignore
-      }
-    }, 1000)
-  })
+const getWiremockUrl = (moduleOptions: StartOptions) => ('url' in moduleOptions ? moduleOptions.url : getContainerUrl(moduleOptions.port ?? 8080))
 
 const startWiremockInContainer = async (port: number) => {
   // eslint-disable-next-line no-console
@@ -38,7 +25,7 @@ const startWiremockInContainer = async (port: number) => {
     console.error('error starting wiremock', err)
   })
 
-  await waitForWiremock(port)
+  await waitForWiremock(getContainerUrl(port))
 }
 
 const stopWiremockContainer = async () =>
@@ -51,29 +38,6 @@ const stopWiremockContainer = async () =>
       resolve()
     })
   })
-
-const clearAllMappings = async (url: string) => {
-  // eslint-disable-next-line no-console
-  console.log(`removing existing mappings from ${url}`)
-  await fetch(`${url}/__admin/mappings`, { method: 'DELETE' })
-}
-
-const addProxyMapping = async (url: string, proxy: string) => {
-  // eslint-disable-next-line no-console
-  console.log(`adding mapping for the proxy ${proxy} to ${url}`)
-  await fetch(`${url}/__admin/mappings`, {
-    method: 'POST',
-    body: JSON.stringify({
-      request: {
-        method: 'ANY',
-        urlPattern: '/.*',
-      },
-      response: {
-        proxyBaseUrl: proxy,
-      },
-    }),
-  })
-}
 
 let moduleOptions: StartOptions = {}
 
@@ -100,9 +64,10 @@ const start = async (options: StartOptions) => {
   }
 
   await clearAllMocks()
+  clearAll()
 
   // eslint-disable-next-line no-console
   console.log('wiremock started...')
 }
 
-export default { start, stop, clearAllMocks }
+export default { start, stop, clearAllMocks, mock: mock(() => getWiremockUrl(moduleOptions)) }
