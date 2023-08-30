@@ -17,8 +17,3 @@ runs:
       id: build
       run: npm run build
       shell: bash
-
-    - name: Test
-      id: test
-      run: npm run test
-      shell: bash

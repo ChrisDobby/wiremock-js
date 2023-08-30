@@ -38,6 +38,12 @@ wm.start({})
 
 When you have finished call `wm.stop()` to clear all mappings and, if a docker container was started, shut it down.
 
+To add a single mock response use
+
+```typescript
+wm.mock('GET', '/hello-world').mockResponse({ status: 200 }).map()
+```
+
 ## API
 
 ### wm.start([options]) => Promise&lt;void&gt;
@@ -80,6 +86,48 @@ Clears any existing mocks and stops the docker container if one was started.
 
 Clears all existing mocks except the proxy if one was supplied.
 
+### wm.mock([httpMethod], [path]) => WmMock
+
+#### httpMethod
+
+Type: `'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE' | 'HEAD' | 'OPTIONS'`<br>
+
+Specifies the http method that the mock refers to.
+
+#### path
+
+Type: `string`<br>
+
+Specifies the path that the mock refers to.
+
+### Mock.mockResponse([response])
+
+#### response
+
+Type: `Object`<br>
+
+Response object
+
+##### status
+
+Type: `number`<br>
+
+The http status code for the response
+
+##### headers
+
+Type: `Object`<br>
+Default: `undefined`
+
+The response headers
+
+##### body
+
+Type: `Object`<br>
+Default: `undefined`
+
+The response body
+
 ## Demo
 
 The [demo](./demo/) will start up a docker container running Wiremock and perform some sample integration tests using vitest.
@@ -87,5 +135,6 @@ The [demo](./demo/) will start up a docker container running Wiremock and perfor
 To run it ensure the docker daemon is running and run
 
 ```
+npm run build
 npm run demo
 ```
