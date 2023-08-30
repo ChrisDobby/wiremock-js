@@ -4,7 +4,6 @@
   "description": "",
   "author": "chrisdobby",
   "license": "MIT",
-  "private": true,
   "scripts": {
     "types": "tsc --noEmit --incremental",
     "lint": "eslint src/ --max-warnings=0",

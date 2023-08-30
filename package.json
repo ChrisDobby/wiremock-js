@@ -19,7 +19,6 @@
     "url": "https://github.com/chrisdobby/wiremock-js/issues"
   },
   "homepage": "https://github.com/chrisdobby/wiremock-js#readme",
-  "private": true,
   "devDependencies": {
     "@types/node": "^20.5.6",
     "@typescript-eslint/eslint-plugin": "^6.4.1",
