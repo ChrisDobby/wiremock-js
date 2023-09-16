@@ -1,6 +1,6 @@
 # @chrisdobby/wiremock-js
 
-[](https://github.com/ChrisDobby/wiremock-js/actions/workflows/release.yaml/badge.svg)
+![Release workflow](https://github.com/ChrisDobby/wiremock-js/actions/workflows/release.yaml/badge.svg)
 
 This is the `@chrisdobby/wiremock-js` monorepo. It contains two projects:
 
