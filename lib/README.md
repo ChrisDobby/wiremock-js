@@ -1,6 +1,6 @@
-# wiremock-js
+# @chrisdobby/wiremock-js
 
-This is the `wiremock-js` library.
+This is the `@chrisdobby/wiremock-js` library.
 
 It is designed to give typescript and javascript developers a library to run [Wiremock](https://wiremock.org/) with a familiar API.
 
